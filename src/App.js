@@ -4,14 +4,12 @@ import Home from '../src/pages/Home';
 function App() {
   return (
     <Router>
-        <div>
-          <Navigation />
-            <Switch>
-              <Route exact path="/" component={Home} />
-            </Switch>
-          <Footer />
-        </div>
-      </Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
