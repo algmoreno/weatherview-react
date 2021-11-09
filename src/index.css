@@ -43,6 +43,15 @@ code {
 }
 
 .search-container {
-  background-image: linear-gradient(to right, transparent , tomato);
+  background-image: linear-gradient(to right, transparent , rgb(255, 176, 139));
   height: 45px;
+}
+
+.card-container {
+  margin-top: 50px;
+}
+
+.card {
+  margin: auto;
+  border: none;
 }
