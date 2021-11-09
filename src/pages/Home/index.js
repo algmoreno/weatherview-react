@@ -5,13 +5,21 @@ import Display from '../../components/Display'
 
 const Home = () => {
   return (
-    <div>
-      <Header />
-      <SearchBar />
-      <Display />
+    <div className='container'>
+      <div className='row'>
+        <div className='col-12'>
+          <Header />
+        </div>
+        <div className='col-12'>
+          <SearchBar />
+        </div>
+        <div className='col-12'>
+          <Display />
+        </div>
+      </div>
     </div>
 
   )
 }
 
-export default Home; 
+export default Home;
