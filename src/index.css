@@ -12,6 +12,16 @@ code {
     monospace;
 }
 
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .main {
   width: 100%;
 }
@@ -25,4 +35,14 @@ code {
   background-image: url(./assets/images/sunny.jpg);
   background-repeat: no-repeat;
   height: 100px;
+}
+
+.search-main {
+  background-color: white;
+  height: 50px;
+}
+
+.search-container {
+  background-image: linear-gradient(to right, transparent , tomato);
+  height: 45px;
 }

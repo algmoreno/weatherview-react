@@ -6,11 +6,11 @@ import Display from '../../components/Display'
 const Home = () => {
   return (
     <div className='container'>
-      <div className='row'>
+      <div className='row justify-content-start'>
         <div className='col-12'>
           <Header className='header' />
         </div>
-        <div className='col-12'>
+        <div className='col-12 search-bar'>
           <SearchBar />
         </div>
         <div className='col-12'>
