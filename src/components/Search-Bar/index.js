@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { WeatherContext } from '../../Contexts/WeatherContext';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
@@ -9,35 +10,39 @@ import Container from 'react-bootstrap/Container';
 
 const SearchBar = () => {
 
-  const [city, setCity] = useState('');
-  const [data, setData] = useState(false);
+  const { city } = useContext(WeatherContext);
+  const { setCity } = useContext(WeatherContext);
 
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  const { data } = useContext(WeatherContext);
+  const { setData } = useContext(WeatherContext);
 
-  function getCity(val) {
-    if (data === true) {
-      setCity(val.target.value)
-    }
-  }
+  // const { setIsLoaded } = useContext(WeatherContext);
+  // const { items } = useContext(WeatherContext);
+  // const { setItems } = useContext(WeatherContext);
+  // const { setError } = useContext(WeatherContext);
+
+  // function getCity(val) {
+  //   if (data === true) {
+  //     setCity(val.target.value)
+  //   }
+  // }
   
-  useEffect(() => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=tucson&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-  }, []);
+  console.log(city);
 
-  console.log(items)
+  // useEffect(() => {
+  //   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
+  //     .then(res => res.json())
+  //     .then(
+  //       (result) => {
+  //         setItems(result);
+  //       },
+  //       (error) => {
+  //         setError(error);
+  //       }
+  //     )
+  // }, [city]);
+
+  // console.log(items)
 
   
   return (
@@ -48,7 +53,7 @@ const SearchBar = () => {
         <div className='col-3'>
           <Form className="d-flex"> 
             <FormControl
-              onChange={getCity}
+              onInput={(event) => {setCity(event.target.value)}}
               type="search"
               placeholder="Search"
               className="me-2"

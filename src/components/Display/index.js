@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { WeatherContext } from '../../Contexts/WeatherContext';
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
-
+import SearchBar from '../Search-Bar';
 
 function Display() {
+
+  const { city } = useContext(WeatherContext);
+  const { setCity } = useContext(WeatherContext);
+
+  const { data } = useContext(WeatherContext);
+  const { setData } = useContext(WeatherContext);
+  
+  const { setIsLoaded } = useContext(WeatherContext);
+  const { items } = useContext(WeatherContext);
+  const { setItems } = useContext(WeatherContext);
+  const { setError } = useContext(WeatherContext);
+
   return (
     <div className='card-container'>
       <div className='row justify-content-start'>
@@ -13,7 +26,7 @@ function Display() {
             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
             <Card.Body>
               <Card.Title>Date</Card.Title>
-              <h2>City</h2>
+              <h2>{city}</h2>
               <Card.Text>
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
