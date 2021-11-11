@@ -14,20 +14,48 @@ const SearchBar = () => {
   const [city, setCity] = useState('');
   const [data, setData] = useState(false);
 
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+
   function getCity(val) {
     if (data === true) {
       setCity(val.target.value)
     }
   }
   
-  console.log(city)
 
-  useEffect(async () => {
-    const response = await fetch(`api.openweathermap.org/data/2.5/weather?q=tucson&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
-    console.log(response)
-    // const data = await response.json();
-    // console.log(data)
-  }, [])
+  useEffect(() => {
+    fetch("api.openweathermap.org/data/2.5/weather?q=tucson&appid=c3db145bc89912e27b13b4d5a94e0f9d")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+  }, []);
+
+  console.log(items)
+// function fetchWeather() {
+//   fetch(`api.openweathermap.org/data/2.5/weather?q=tucson&appid=c3db145bc89912e27b13b4d5a94e0f9d`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   })
+//   .then(response => response.json());
+
+// }
+    
+// fetchWeather();
 
   
   return (
