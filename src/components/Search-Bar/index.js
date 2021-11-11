@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -24,18 +22,14 @@ const SearchBar = () => {
     }
   }
   
-
   useEffect(() => {
-    fetch("api.openweathermap.org/data/2.5/weather?q=tucson&appid=c3db145bc89912e27b13b4d5a94e0f9d")
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=tucson&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
       .then(res => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
           setItems(result);
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           setIsLoaded(true);
           setError(error);
@@ -44,18 +38,6 @@ const SearchBar = () => {
   }, []);
 
   console.log(items)
-// function fetchWeather() {
-//   fetch(`api.openweathermap.org/data/2.5/weather?q=tucson&appid=c3db145bc89912e27b13b4d5a94e0f9d`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }
-//   })
-//   .then(response => response.json());
-
-// }
-    
-// fetchWeather();
 
   
   return (
