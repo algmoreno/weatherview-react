@@ -15,7 +15,7 @@ const Home = () => {
 
 
   return (
-    <WeatherContext.Provider value={{ city, setCity }}>
+    <WeatherContext.Provider value={[[city, setCity], [data, setData], [error, setError], [isLoaded, setIsLoaded], [items, setItems]]}>
       <div className='container'>
       <div className='row justify-content-start'>
         <div className='col-12'>
@@ -30,8 +30,6 @@ const Home = () => {
       </div>
     </div>
     </WeatherContext.Provider>
-    
-
   )
 }
 

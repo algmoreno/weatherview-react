@@ -7,16 +7,9 @@ import SearchBar from '../Search-Bar';
 
 function Display() {
 
-  const { city } = useContext(WeatherContext);
-  const { setCity } = useContext(WeatherContext);
-
-  const { data } = useContext(WeatherContext);
-  const { setData } = useContext(WeatherContext);
-  
-  const { setIsLoaded } = useContext(WeatherContext);
-  const { items } = useContext(WeatherContext);
-  const { setItems } = useContext(WeatherContext);
-  const { setError } = useContext(WeatherContext);
+  const [[city, setCity], [data, setData],
+  [error, setError], [isLoaded, setIsLoaded], 
+  [items, setItems]] = useContext(WeatherContext);
 
   return (
     <div className='card-container'>

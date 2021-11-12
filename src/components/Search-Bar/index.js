@@ -10,39 +10,32 @@ import Container from 'react-bootstrap/Container';
 
 const SearchBar = () => {
 
-  const { city } = useContext(WeatherContext);
-  const { setCity } = useContext(WeatherContext);
+  const [[city, setCity], [data, setData],
+  [error, setError], [isLoaded, setIsLoaded], 
+  [items, setItems]] = useContext(WeatherContext);
 
-  const { data } = useContext(WeatherContext);
-  const { setData } = useContext(WeatherContext);
-
-  // const { setIsLoaded } = useContext(WeatherContext);
-  // const { items } = useContext(WeatherContext);
-  // const { setItems } = useContext(WeatherContext);
-  // const { setError } = useContext(WeatherContext);
-
-  // function getCity(val) {
-  //   if (data === true) {
-  //     setCity(val.target.value)
-  //   }
-  // }
+  function getCity(val) {
+    if (data === true) {
+      setCity(val.target.value)
+    }
+  }
   
   console.log(city);
 
-  // useEffect(() => {
-  //   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
-  //     .then(res => res.json())
-  //     .then(
-  //       (result) => {
-  //         setItems(result);
-  //       },
-  //       (error) => {
-  //         setError(error);
-  //       }
-  //     )
-  // }, [city]);
+  useEffect(() => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setItems(result);
+        },
+        (error) => {
+          setError(error);
+        }
+      )
+  }, [city]);
 
-  // console.log(items)
+  console.log(items)
 
   
   return (
