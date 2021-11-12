@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import SearchBar from '../Search-Bar';
+import toFahrenheit from '../../utils/helpers';
 
 function Display() {
 
