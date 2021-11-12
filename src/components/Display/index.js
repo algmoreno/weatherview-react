@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { WeatherContext } from '../../Contexts/WeatherContext';
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import SearchBar from '../Search-Bar';
-import toFahrenheit from '../../utils/helpers';
 
 function Display() {
 
@@ -12,10 +10,18 @@ function Display() {
   [error, setError], [isLoaded, setIsLoaded], 
   [items, setItems]] = useContext(WeatherContext);
 
+  // const [temp, setTemp] = useState(items.main.temp);
+
+  function toFahrenheit(K) {
+    return Math.round(((K - 273.15) * 9) / 5 + 32);
+  }
+
+  console.log(items)
+
   return (
     <div className='card-container'>
       <div className='row justify-content-start'>
-        <div className='col-8 card'>
+        <div className='col-8 card'> 
           <Card style={{ width: '48rem' }}>
             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
             <Card.Body>

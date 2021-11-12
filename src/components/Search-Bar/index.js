@@ -35,9 +35,6 @@ const SearchBar = () => {
       )
   }, [city]);
 
-  console.log(items)
-
-  
   return (
     <Navbar className='search-main' expand="lg">
       <Container className='row justify-content-start search-container' fluid>
