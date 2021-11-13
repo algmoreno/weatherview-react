@@ -15,9 +15,6 @@ function Display() {
     return Math.round(((K - 273.15) * 9) / 5 + 32);
   }
 
-  console.log(isLoaded);
-
-  
 
   return (
     <div className='card-container'>

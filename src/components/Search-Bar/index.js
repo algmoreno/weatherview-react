@@ -13,21 +13,19 @@ const SearchBar = () => {
   const [[city, setCity], [data, setData],
   [error, setError], [isLoaded, setIsLoaded], 
   [items, setItems]] = useContext(WeatherContext);
-
-  function getCity(val) {
-    if (data === true) {
-      setCity(val.target.value)
-    }
-  }
   
-  console.log(city);
 
   useEffect(() => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
       .then(res => res.json())
       .then(
         (result) => {
-          setItems(result);
+          if(result.cod === '200'){
+            setItems(result);
+          }
+          else if (result.cod === '400' || result.cod === '404'){
+            setIsLoaded(false);
+          }
         },
         (error) => {
           setError(error);
@@ -35,14 +33,6 @@ const SearchBar = () => {
       )
   }, [city],);
 
-  console.log(items);
-
-  if(items.cod === '400'){
-    setIsLoaded(false);
-  }
-  else if (items.name === city){
-    setIsLoaded(true)
-  }
 
   return (
     <Navbar className='search-main' expand="lg">
@@ -53,7 +43,6 @@ const SearchBar = () => {
           <Form className="d-flex"> 
             <FormControl
               onInput={(event) => {setCity(event.target.value)}}
-              onChange={setIsLoaded(false)}
               type="search"
               placeholder="Search"
               className="me-2"
