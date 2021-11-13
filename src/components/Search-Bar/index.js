@@ -13,25 +13,29 @@ const SearchBar = () => {
   const [[city, setCity], [data, setData],
   [error, setError], [isLoaded, setIsLoaded], 
   [items, setItems]] = useContext(WeatherContext);
-  
 
+  
   useEffect(() => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
       .then(res => res.json())
       .then(
         (result) => {
-          if(result.cod === '200'){
+          if (result.cod === '200' || result.base === 'stations'){
             setItems(result);
+            // setIsLoaded(true);
           }
-          else if (result.cod === '400' || result.cod === '404'){
+          else if (result.cod === '400' || result.cod === '404' || result === []){
             setIsLoaded(false);
           }
+          
         },
         (error) => {
           setError(error);
         }
       )
   }, [city],);
+
+  console.log(items);
 
 
   return (

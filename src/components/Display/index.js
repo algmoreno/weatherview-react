@@ -5,16 +5,24 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 
 function Display() {
+  
+  formatDate();
 
   const [[city, setCity], [data, setData],
   [error, setError], [isLoaded, setIsLoaded], 
   [items, setItems]] = useContext(WeatherContext);
 
+  function formatDate(){
+    let today = new Date(); 
+    let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+    return date
+  }
 
   function toFahrenheit(K) {
     return Math.round(((K - 273.15) * 9) / 5 + 32);
   }
 
+  console.log(items);
 
   return (
     <div className='card-container'>
@@ -23,16 +31,24 @@ function Display() {
           <Card style={{ width: '48rem' }}>
             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
             <Card.Body>
-              <Card.Title>Date</Card.Title>
+              <Card.Title>{formatDate()}</Card.Title>
               <h2>{city}</h2>
+              {isLoaded ? 
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-              </Card.Text>
+              {items.weather[0].description}
+            </Card.Text> :
+            <Card.Text>
+
+          </Card.Text>}
+              
             </Card.Body>
             <ListGroup className="list-group-flush">
               {isLoaded ? 
-              <ListGroupItem>Currently: {toFahrenheit(items.main.temp)}</ListGroupItem> :
+              <ListGroupItem className='row'> 
+                <h6 className='col-4'>Currently: {toFahrenheit(items.main.temp)} </h6>
+                <h6 className='col-4'>High: {toFahrenheit(items.main.temp_max)} </h6>
+                <h6 className='col-4'>Low: {toFahrenheit(items.main.temp_min)} </h6>
+              </ListGroupItem> :
               <ListGroupItem>Currently: </ListGroupItem>
               }
               <ListGroupItem>Humidity:</ListGroupItem>
