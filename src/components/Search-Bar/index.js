@@ -22,7 +22,6 @@ const SearchBar = () => {
         (result) => {
           if (result.cod === '200' || result.base === 'stations'){
             setItems(result);
-            // setIsLoaded(true);
           }
           else if (result.cod === '400' || result.cod === '404' || result === []){
             setIsLoaded(false);
@@ -36,7 +35,6 @@ const SearchBar = () => {
   }, [city],);
 
   console.log(items);
-
 
   return (
     <Navbar className='search-main' expand="lg">

@@ -24,8 +24,10 @@ const Home = () => {
         <div className='col-12 search-bar'>
           <SearchBar />
         </div>
-        <div className='col-12'>
-          <Display />
+        <div className='col-12 display-col'>
+          {isLoaded ? <Display /> : 
+          <h3>Search a city</h3>
+          }
         </div>
       </div>
     </div>

@@ -22,6 +22,16 @@ function Display() {
     return Math.round(((K - 273.15) * 9) / 5 + 32);
   }
 
+  function titleCase(str) {
+    let convertToArray = str.toLowerCase().split(" ");
+  
+    let result = convertToArray.map(function (val) {
+      return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+    });
+  
+    return result.join(" ")
+  }
+
   console.log(items);
 
   return (
@@ -32,15 +42,16 @@ function Display() {
             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
             <Card.Body>
               <Card.Title>{formatDate()}</Card.Title>
-              <h2>{city}</h2>
+              {isLoaded ? 
+              <h2>{city}</h2> :
+              <h2></h2>
+              }
               {isLoaded ? 
               <Card.Text>
-              {items.weather[0].description}
+              {titleCase(items.weather[0].description)}
             </Card.Text> :
             <Card.Text>
-
           </Card.Text>}
-              
             </Card.Body>
             <ListGroup className="list-group-flush">
               {isLoaded ? 
@@ -49,10 +60,17 @@ function Display() {
                 <h6 className='col-4'>High: {toFahrenheit(items.main.temp_max)} </h6>
                 <h6 className='col-4'>Low: {toFahrenheit(items.main.temp_min)} </h6>
               </ListGroupItem> :
-              <ListGroupItem>Currently: </ListGroupItem>
-              }
-              <ListGroupItem>Humidity:</ListGroupItem>
-              <ListGroupItem>UV Index:</ListGroupItem>
+              <ListGroupItem className='row'> 
+              <h6 className='col-4'>Currently: </h6>
+              <h6 className='col-4'>High: </h6>
+              <h6 className='col-4'>Low: </h6>
+              </ListGroupItem>}
+              {isLoaded ? 
+              <ListGroupItem>Humidity: {items.main.humidity}%</ListGroupItem> :
+              <ListGroupItem>Humidity:</ListGroupItem> }
+              {isLoaded ? 
+              <ListGroupItem>UV Index:</ListGroupItem> :
+              <ListGroupItem>UV Index:</ListGroupItem> }
             </ListGroup>
             <Card.Body>
               <Card.Link href="#">10-Day Forecast</Card.Link>
