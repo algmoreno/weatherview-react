@@ -33,7 +33,16 @@ const SearchBar = () => {
           setError(error);
         }
       )
-  }, [city]);
+  }, [city],);
+
+  console.log(items);
+
+  if(items.cod === '400'){
+    setIsLoaded(false);
+  }
+  else if (items.name === city){
+    setIsLoaded(true)
+  }
 
   return (
     <Navbar className='search-main' expand="lg">
@@ -44,12 +53,13 @@ const SearchBar = () => {
           <Form className="d-flex"> 
             <FormControl
               onInput={(event) => {setCity(event.target.value)}}
+              onChange={setIsLoaded(false)}
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search" />
             <Button 
-              onClick={() => setData(true)}
+              onClick={() => setIsLoaded(true)}
              variant="outline-success">Search</Button>
           </Form>
         </div>

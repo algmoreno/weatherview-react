@@ -10,13 +10,14 @@ function Display() {
   [error, setError], [isLoaded, setIsLoaded], 
   [items, setItems]] = useContext(WeatherContext);
 
-  // const [temp, setTemp] = useState(items.main.temp);
 
   function toFahrenheit(K) {
     return Math.round(((K - 273.15) * 9) / 5 + 32);
   }
 
-  console.log(items)
+  console.log(isLoaded);
+
+  
 
   return (
     <div className='card-container'>
@@ -33,7 +34,10 @@ function Display() {
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
+              {isLoaded ? 
+              <ListGroupItem>Currently: {toFahrenheit(items.main.temp)}</ListGroupItem> :
               <ListGroupItem>Currently: </ListGroupItem>
+              }
               <ListGroupItem>Humidity:</ListGroupItem>
               <ListGroupItem>UV Index:</ListGroupItem>
             </ListGroup>
