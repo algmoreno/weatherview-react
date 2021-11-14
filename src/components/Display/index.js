@@ -35,10 +35,9 @@ function Display() {
   return (
     <div className='card-container'>
       <div className='row justify-content-start'>
-        <div className='col-8 card'>
-          <Card style={{ width: '48rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-            <Card.Body>
+        <div className='col-9 card'>
+          <Card className='weather-card' style={{ width: '48rem' }}>
+            <Card.Body className='weather-card-body'>
               <Card.Title>{formatDate()}</Card.Title>
               <h2>{items.name}</h2>
               <Card.Text>
@@ -47,17 +46,16 @@ function Display() {
               <Card.Text>
               </Card.Text>
             </Card.Body>
-            <ListGroup className="list-group-flush">
+            <ListGroup className="list-group-flush weather-card-list">
               <ListGroupItem className='row'>
                 <h6 className='col-4'>Currently: {toFahrenheit(items.main.temp)} </h6>
                 <h6 className='col-4'>High: {toFahrenheit(items.main.temp_max)} </h6>
                 <h6 className='col-4'>Low: {toFahrenheit(items.main.temp_min)} </h6>
               </ListGroupItem>
               <ListGroupItem>Humidity: {items.main.humidity}%</ListGroupItem>
-              <ListGroupItem>UV Index:</ListGroupItem>
+              <ListGroupItem>Wind Speed: {items.wind.speed} m/s</ListGroupItem>
             </ListGroup>
             <Card.Body>
-              <Card.Link href="#">7-Day Forecast</Card.Link>
               <Card.Link href="#">Add to Favorites</Card.Link>
             </Card.Body>
           </Card>

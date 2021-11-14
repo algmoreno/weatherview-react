@@ -31,7 +31,7 @@ const SearchBar = () => {
           setError(error);
         }
       )
-  }, [city],);
+  }, [city]);
 
 
   console.log(items);
