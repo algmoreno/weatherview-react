@@ -52,9 +52,31 @@ code {
   justify-content: center;
 }
 
-.card-container {
+.Clear {
   margin-top: 90px;
-  background-color: black;
+  background-image: url(./assets/images/clear.jpg);
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
+
+.Clouds {
+  margin-top: 90px;
+  background-image: url(./assets/images/clouds.jpg);
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
+
+.Rain {
+  margin-top: 90px;
+  background-image: url(./assets/images/rain.jpg);
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
+
+.Mist {
+  margin-top: 90px;
+  background-image: url(./assets/images/mist.jpg);
+  background-repeat: no-repeat;
   border-radius: 20px;
 }
 

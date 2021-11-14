@@ -32,8 +32,10 @@ function Display() {
     return result.join(" ")
   }
 
+  console.log(items.weather[0].main)
+
   return (
-    <div className='card-container'>
+    <div className={items.weather[0].main}>
       <div className='row justify-content-start'>
         <div className='col-9 card'>
           <Card className='weather-card' style={{ width: '48rem' }}>
