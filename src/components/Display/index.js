@@ -5,15 +5,15 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 
 function Display() {
-  
+
   formatDate();
 
   const [[city, setCity], [data, setData],
-  [error, setError], [isLoaded, setIsLoaded], 
-  [items, setItems]] = useContext(WeatherContext);
+    [error, setError], [isLoaded, setIsLoaded],
+    [items, setItems], [details, setDetails]] = useContext(WeatherContext);
 
-  function formatDate(){
-    let today = new Date(); 
+  function formatDate() {
+    let today = new Date();
     let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
     return date
   }
@@ -24,56 +24,40 @@ function Display() {
 
   function titleCase(str) {
     let convertToArray = str.toLowerCase().split(" ");
-  
+
     let result = convertToArray.map(function (val) {
       return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
     });
-  
+
     return result.join(" ")
   }
-
-  console.log(items);
 
   return (
     <div className='card-container'>
       <div className='row justify-content-start'>
-        <div className='col-8 card'> 
+        <div className='col-8 card'>
           <Card style={{ width: '48rem' }}>
             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
             <Card.Body>
               <Card.Title>{formatDate()}</Card.Title>
-              {isLoaded ? 
-              <h2>{city}</h2> :
-              <h2></h2>
-              }
-              {isLoaded ? 
+              <h2>{items.name}</h2>
               <Card.Text>
-              {titleCase(items.weather[0].description)}
-            </Card.Text> :
-            <Card.Text>
-          </Card.Text>}
+                {titleCase(items.weather[0].description)}
+              </Card.Text>
+              <Card.Text>
+              </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-              {isLoaded ? 
-              <ListGroupItem className='row'> 
+              <ListGroupItem className='row'>
                 <h6 className='col-4'>Currently: {toFahrenheit(items.main.temp)} </h6>
                 <h6 className='col-4'>High: {toFahrenheit(items.main.temp_max)} </h6>
                 <h6 className='col-4'>Low: {toFahrenheit(items.main.temp_min)} </h6>
-              </ListGroupItem> :
-              <ListGroupItem className='row'> 
-              <h6 className='col-4'>Currently: </h6>
-              <h6 className='col-4'>High: </h6>
-              <h6 className='col-4'>Low: </h6>
-              </ListGroupItem>}
-              {isLoaded ? 
-              <ListGroupItem>Humidity: {items.main.humidity}%</ListGroupItem> :
-              <ListGroupItem>Humidity:</ListGroupItem> }
-              {isLoaded ? 
-              <ListGroupItem>UV Index:</ListGroupItem> :
-              <ListGroupItem>UV Index:</ListGroupItem> }
+              </ListGroupItem>
+              <ListGroupItem>Humidity: {items.main.humidity}%</ListGroupItem>
+              <ListGroupItem>UV Index:</ListGroupItem>
             </ListGroup>
             <Card.Body>
-              <Card.Link href="#">10-Day Forecast</Card.Link>
+              <Card.Link href="#">7-Day Forecast</Card.Link>
               <Card.Link href="#">Add to Favorites</Card.Link>
             </Card.Body>
           </Card>

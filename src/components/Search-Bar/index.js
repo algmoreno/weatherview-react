@@ -12,7 +12,7 @@ const SearchBar = () => {
 
   const [[city, setCity], [data, setData],
   [error, setError], [isLoaded, setIsLoaded], 
-  [items, setItems]] = useContext(WeatherContext);
+  [items, setItems], [details, setDetails]] = useContext(WeatherContext);
 
   
   useEffect(() => {
@@ -22,11 +22,11 @@ const SearchBar = () => {
         (result) => {
           if (result.cod === '200' || result.base === 'stations'){
             setItems(result);
+            setData(true);
           }
           else if (result.cod === '400' || result.cod === '404' || result === []){
             setIsLoaded(false);
           }
-          
         },
         (error) => {
           setError(error);
@@ -34,7 +34,22 @@ const SearchBar = () => {
       )
   }, [city],);
 
+  useEffect(() => {
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${items.coord.lat}&lon=${items.coord.lon}&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setDetails(result);
+        },
+        (error) => {
+          setError(error);
+        }
+      )
+  }, [data]);
+
+
   console.log(items);
+  console.log(details);
 
   return (
     <Navbar className='search-main' expand="lg">

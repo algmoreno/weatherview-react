@@ -12,10 +12,14 @@ const Home = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
+  const [details, setDetails] = useState([])
+  // const [lat, setLat] = useState([]);
+  // const [lon, setLon] = useState([]);
 
 
   return (
-    <WeatherContext.Provider value={[[city, setCity], [data, setData], [error, setError], [isLoaded, setIsLoaded], [items, setItems]]}>
+    <WeatherContext.Provider value={[[city, setCity], [data, setData], [error, setError], 
+    [isLoaded, setIsLoaded], [items, setItems], [details, setDetails]]}>
       <div className='container'>
       <div className='row justify-content-start'>
         <div className='col-12'>
