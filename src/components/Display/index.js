@@ -10,7 +10,7 @@ function Display() {
 
   const [[city, setCity], [data, setData],
     [error, setError], [isLoaded, setIsLoaded],
-    [items, setItems], [details, setDetails]] = useContext(WeatherContext);
+    [items, setItems]] = useContext(WeatherContext);
 
   function formatDate() {
     let today = new Date();
