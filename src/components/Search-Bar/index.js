@@ -38,11 +38,11 @@ const SearchBar = () => {
 
   return (
     <Navbar className='search-main' expand="lg">
-      <Container className='row justify-content-start search-container' fluid>
-        <div className='col-9'>
+      <Container className='row justify-content-center search-container' fluid>
+        <div className='col-8'>
         </div>
-        <div className='col-3'>
-          <Form className="d-flex"> 
+        <div className='col-4'>
+          <Form className="d-flex search-opt"> 
             <FormControl
               onInput={(event) => {setCity(event.target.value)}}
               type="search"
@@ -50,6 +50,7 @@ const SearchBar = () => {
               className="me-2"
               aria-label="Search" />
             <Button 
+              className='search-btn'
               onClick={() => setIsLoaded(true)}
              variant="outline-success">Search</Button>
           </Form>

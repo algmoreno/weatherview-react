@@ -26,15 +26,19 @@ code {
   width: 100%;
 }
 
-.navbar-light .navbar-brand {
-  color: rgb(251, 255, 29);
-  font-size: 50px;
+.navbar-dark .navbar-brand {
+  color: rgb(251, 255, 11);
 }
 
 .header {
   background-image: url(./assets/images/sunny.jpg);
   background-repeat: no-repeat;
-  height: 100px;
+  height: 60px;
+}
+
+.header-text {
+  font-size: 40px;
+  color:rgb(251, 255, 29);
 }
 
 .search-main {
@@ -43,12 +47,37 @@ code {
 }
 
 .search-container {
-  background-image: linear-gradient(to right, transparent , rgb(255, 176, 139));
+  background-color: transparent;
   height: 45px;
+  margin:auto;
+}
+
+.search-opt {
+  justify-content: center;
+}
+
+.search-bar {
+  margin: auto;
+}
+
+.search-btn {
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+}
+
+.search-btn:hover {
+  background-color: transparent;
+  color: black;
+}
+
+
+.display-col {
+  justify-content: center;
 }
 
 .display-col h3 {
-  margin: 0 auto 0 auto;
+  margin: 20px auto 0 auto;
   justify-content: center;
 }
 
@@ -88,10 +117,14 @@ code {
 
 .weather-card {
   background-color: transparent;
-  color: white;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 1px #000000;
 }
+
 
 .list-group-item {
   background-color: transparent;
   color: white;
+  text-shadow: 2px 1px #000000;
 }
+

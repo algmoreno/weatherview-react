@@ -18,7 +18,7 @@ const Home = () => {
     <WeatherContext.Provider value={[[city, setCity], [data, setData], [error, setError], 
     [isLoaded, setIsLoaded], [items, setItems]]}>
       <div className='container'>
-      <div className='row justify-content-start'>
+      <div className='row'>
         <div className='col-12'>
           <Header className='header' />
         </div>

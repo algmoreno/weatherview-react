@@ -36,8 +36,8 @@ function Display() {
 
   return (
     <div className={items.weather[0].main}>
-      <div className='row justify-content-start'>
-        <div className='col-9 card'>
+      <div className='row justify-content-center'>
+        <div className='col-12 card'>
           <Card className='weather-card' style={{ width: '48rem' }}>
             <Card.Body className='weather-card-body'>
               <Card.Title>{formatDate()}</Card.Title>
