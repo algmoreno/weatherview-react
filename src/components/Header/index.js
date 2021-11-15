@@ -12,19 +12,19 @@ import sunny from '../../assets/images/sunny.jpg';
 function Header() {
 
   const [[city, setCity], [data, setData],
-  [error, setError], [isLoaded, setIsLoaded], 
-  [items, setItems]] = useContext(WeatherContext);
+    [error, setError], [isLoaded, setIsLoaded],
+    [items, setItems]] = useContext(WeatherContext);
 
-  
+
   useEffect(() => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c3db145bc89912e27b13b4d5a94e0f9d`)
       .then(res => res.json())
       .then(
         (result) => {
-          if (result.cod === '200' || result.base === 'stations'){
+          if (result.cod === '200' || result.base === 'stations') {
             setItems(result);
           }
-          else if (result.cod === '400' || result.cod === '404' || result === []){
+          else if (result.cod === '400' || result.cod === '404' || result === []) {
             setIsLoaded(false);
           }
         },
@@ -47,23 +47,27 @@ function Header() {
     // </Navbar>
 
     <Navbar className='header' fixed='top' variant="dark">
-      <Container className='row justify-content-center search-container'>
-      <div className='col-8'>
-        <Navbar.Brand className='header-text' href="/">WeatherView</Navbar.Brand>
+      <Container className='row justify-content-start search-container'>
+        
+        <div className='col-6'>
+          <Navbar.Brand className='header-text' href="/">WeatherView</Navbar.Brand>
         </div>
-        <div className='col-4'>
-          <Form className="d-flex search-opt"> 
+        <div className='col-3'>
+          <Form className="d-flex search-opt">
             <FormControl
-              onInput={(event) => {setCity(event.target.value)}}
+              onInput={(event) => { setCity(event.target.value) }}
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search" />
-            <Button 
+            <Button
               className='search-btn'
               onClick={() => setIsLoaded(true)}
-             variant="outline-success">Search</Button>
+              variant="outline-success">Search</Button>
           </Form>
+          <div className='col-3'>
+            Login
+          </div>
         </div>
       </Container>
     </Navbar>
