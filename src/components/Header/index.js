@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import { BiUserCircle } from 'react-icons/bi';
 import sunny from '../../assets/images/sunny.jpg';
 
 function Header() {
@@ -60,12 +61,10 @@ function Header() {
           </Form>
         </div>
         <div className='col-2'>
-          <NavDropdown title="User" id="navbarScrollingDropdown">
+          <NavDropdown className='user-dropdown' title= {<BiUserCircle className='user-icon' />} id="navbarScrollingDropdown">
             <NavDropdown.Item href="/signin">Sign In</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="/signup">Create Account</NavDropdown.Item>
-
-
           </NavDropdown>
         </div>
       </Container>

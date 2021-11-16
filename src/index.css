@@ -135,3 +135,18 @@ code {
   margin-top: 100px;
 }
 
+.user-dropdown {
+  justify-content: center;
+  width: 30%;
+  margin: auto;
+}
+
+.user-icon {
+  height: 30px;
+  width: 30px;
+  color: black;
+}
+
+.dropdown-toggle:after {
+  color: black;
+}
