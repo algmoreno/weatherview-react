@@ -73,6 +73,11 @@ code {
   transform: scale(1.03)
 }
 
+.search-city-text {
+  width: 20%;
+  margin-top: 50px;
+  color: rgb(138, 138, 138);
+}
 
 .display-col {
   justify-content: center;
@@ -128,6 +133,24 @@ code {
   background-color: transparent;
   color: white;
   text-shadow: 2px 1px #000000;
+}
+
+.add-container {
+  justify-content: center;
+  margin-left: auto;
+  margin-top: 11px;
+}
+
+.addtofavorites-icon {
+  height: 40px;
+  width: 40px;
+  color:rgb(251, 255, 11);
+  justify-content: end;
+}
+
+.addtofavorites-text {
+  width: 5%;
+  justify-content: end;
 }
 
 .signin-form {

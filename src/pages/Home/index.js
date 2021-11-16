@@ -27,7 +27,7 @@ const Home = () => {
         </div>
         <div className='col-12 display-col'>
           {isLoaded ? <Display /> : 
-          <h3>Search a city</h3>
+          <h3 className='search-city-text'>Search a city</h3>
           }
         </div>
       </div>

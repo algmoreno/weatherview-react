@@ -3,6 +3,7 @@ import { WeatherContext } from '../../Contexts/WeatherContext';
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
+import { IoMdAddCircle } from 'react-icons/io';
 
 function Display() {
 
@@ -38,6 +39,9 @@ function Display() {
     <div className={items.weather[0].main}>
       <div className='row justify-content-center'>
         <div className='col-12 card'>
+          <div className='add-container'>
+        <Card.Link className ='addtofavorites-text' href="#"><IoMdAddCircle className='addtofavorites-icon' /></Card.Link>
+        </div>
           <Card className='weather-card' style={{ width: '48rem' }}>
             <Card.Body className='weather-card-body'>
               <Card.Title>{formatDate()}</Card.Title>
@@ -58,7 +62,7 @@ function Display() {
               <ListGroupItem>Wind Speed: {items.wind.speed} m/s</ListGroupItem>
             </ListGroup>
             <Card.Body>
-              <Card.Link href="#">Add to Favorites</Card.Link>
+              
             </Card.Body>
           </Card>
         </div>
