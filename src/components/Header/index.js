@@ -57,7 +57,7 @@ function Header() {
             <Button
               className='search-btn'
               onClick={() => setIsLoaded(true)}
-              variant="outline-success">Search</Button>
+              variant="light">Search</Button>
           </Form>
         </div>
         <div className='col-2'>

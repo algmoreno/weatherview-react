@@ -64,6 +64,7 @@ code {
   background-color: transparent;
   color: black;
   border: 1px solid black;
+  outline: none;
 }
 
 .search-btn:hover {
@@ -71,6 +72,10 @@ code {
   color: black;
   border: 1px solid black;
   transform: scale(1.03)
+}
+
+.search-btn:focus {
+  background-color: transparent;
 }
 
 .search-city-text {
@@ -148,10 +153,18 @@ code {
   justify-content: end;
 }
 
-.addtofavorites-text {
+.addtofavorites-icon:hover {
+  height: 40px;
+  width: 40px;
+  color:rgb(224, 228, 0);
+  justify-content: end;
+  transform: scale(1.05);
+}
+
+/* .addtofavorites-text {
   width: 5%;
   justify-content: end;
-}
+} */
 
 .signin-form {
   margin: auto;
