@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { WeatherContext } from '../../Contexts/WeatherContext';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -23,7 +24,11 @@ function Header2() {
 
         </div>
         <div className='col-2'>
-          <a href='/signin'>Sign In</a>
+        <NavDropdown title="User" id="navbarScrollingDropdown">
+            <NavDropdown.Item href="/signin">Sign In</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="/signup">Create Account</NavDropdown.Item>
+          </NavDropdown>
         </div>
 
       </Container>

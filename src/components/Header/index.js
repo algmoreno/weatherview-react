@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { WeatherContext } from '../../Contexts/WeatherContext';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -39,7 +40,7 @@ function Header() {
   return (
     <Navbar className='header' fixed='top' variant="dark">
       <Container className='row justify-content-start search-container'>
-        
+
         <div className='col-6'>
           <Navbar.Brand className='header-text' href="/">WeatherView</Navbar.Brand>
         </div>
@@ -57,10 +58,16 @@ function Header() {
               onClick={() => setIsLoaded(true)}
               variant="outline-success">Search</Button>
           </Form>
-          </div>
-          <div className='col-2'>
-            <a href='/signin'>Sign In</a>
-          </div>
+        </div>
+        <div className='col-2'>
+          <NavDropdown title="User" id="navbarScrollingDropdown">
+            <NavDropdown.Item href="/signin">Sign In</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="/signup">Create Account</NavDropdown.Item>
+
+
+          </NavDropdown>
+        </div>
       </Container>
     </Navbar>
   )
