@@ -37,22 +37,14 @@ function Header() {
 
   console.log(items);
   return (
-    //     <Navbar className='header'>
-    //   <Container>
-    //     <Navbar.Brand className='header-text' href="#home">WeatherView</Navbar.Brand>
-    //     <Navbar.Toggle />
-    //     <Navbar.Collapse className="justify-content-end">
-    //     </Navbar.Collapse>
-    //   </Container>
-    // </Navbar>
-
     <Navbar className='header' fixed='top' variant="dark">
       <Container className='row justify-content-start search-container'>
         
         <div className='col-6'>
           <Navbar.Brand className='header-text' href="/">WeatherView</Navbar.Brand>
         </div>
-        <div className='col-3'>
+
+        <div className='col-4'>
           <Form className="d-flex search-opt">
             <FormControl
               onInput={(event) => { setCity(event.target.value) }}
@@ -65,10 +57,11 @@ function Header() {
               onClick={() => setIsLoaded(true)}
               variant="outline-success">Search</Button>
           </Form>
-          <div className='col-3'>
-            Login
           </div>
-        </div>
+          <div className='col-2'>
+            <a href='/'>Login</a>
+          </div>
+        
       </Container>
     </Navbar>
   )
