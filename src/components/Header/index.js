@@ -59,9 +59,8 @@ function Header() {
           </Form>
           </div>
           <div className='col-2'>
-            <a href='/'>Login</a>
+            <a href='/signin'>Sign In</a>
           </div>
-        
       </Container>
     </Navbar>
   )
