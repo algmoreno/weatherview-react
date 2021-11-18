@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer  } from 'react';
 import Header from '../../components/Header';
 import SearchBar from '../../components/Search-Bar';
 import Display from '../../components/Display'
@@ -31,9 +31,9 @@ const Home = () => {
           <h3 className='search-city-text'>Search a city</h3>
           }
         </div>
-        {/* <div className='col-12 favorites-section'>
+        <div className='col-12 favorites-section'>
           <Favorites />
-        </div>  */}
+        </div> 
       </div>
     </div>
     </WeatherContext.Provider>
