@@ -11,7 +11,7 @@ import Container from 'react-bootstrap/Container';
 import { BiUserCircle } from 'react-icons/bi';
 import sunny from '../../assets/images/sunny.jpg';
 
-function Header() {
+const Header = () => {
 
   const [[city, setCity], [data, setData],
     [error, setError], [isLoaded, setIsLoaded],

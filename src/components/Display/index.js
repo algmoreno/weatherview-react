@@ -5,7 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import { IoMdAddCircle } from 'react-icons/io';
 
-function Display() {
+const Display = () => {
 
   formatDate();
 

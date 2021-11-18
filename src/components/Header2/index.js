@@ -11,7 +11,7 @@ import Container from 'react-bootstrap/Container';
 import { BiUserCircle } from 'react-icons/bi';
 import sunny from '../../assets/images/sunny.jpg';
 
-function Header2() {
+const Header2 = () => {
 
   return (
     <Navbar className='header' fixed='top' variant="dark">

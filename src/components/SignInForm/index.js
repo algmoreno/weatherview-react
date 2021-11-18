@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 // import Auth from '../utils/auth';
 
-function SignInForm() {
+const SignInForm = () => {
   return (
     <Form >
       <Form.Group className="mb-3">
