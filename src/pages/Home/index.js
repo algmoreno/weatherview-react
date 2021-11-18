@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../components/Header';
 import SearchBar from '../../components/Search-Bar';
 import Display from '../../components/Display'
+import Favorites from '../../components/Favorites';
 import { WeatherContext } from '../../Contexts/WeatherContext';
  
 const Home = () => {
@@ -30,6 +31,9 @@ const Home = () => {
           <h3 className='search-city-text'>Search a city</h3>
           }
         </div>
+        {/* <div className='col-12 favorites-section'>
+          <Favorites />
+        </div>  */}
       </div>
     </div>
     </WeatherContext.Provider>

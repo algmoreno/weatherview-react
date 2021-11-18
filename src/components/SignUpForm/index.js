@@ -35,7 +35,7 @@ const SignUpForm = () => {
           id="pwd" />
       </Form.Group>
 
-      <Button className='login-btn' variant="primary" type="submit">
+      <Button href='/' className='login-btn' variant="primary" type="submit">
         Submit
       </Button>
     </Form>
