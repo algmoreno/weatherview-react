@@ -15,7 +15,7 @@ const Header = () => {
 
   const [[city, setCity], [data, setData],
     [error, setError], [isLoaded, setIsLoaded],
-    [items, setItems]] = useContext(WeatherContext);
+    [items, setItems], [temp, setTemp]] = useContext(WeatherContext);
 
 
   useEffect(() => {
@@ -36,8 +36,13 @@ const Header = () => {
       )
   }, [city]);
 
-
+  if (items !== null || items !== []){
+    setTemp(items.main.temp)
+  }
   console.log(items);
+  console.log(city)
+  console.log(temp);
+
   return (
     <Navbar className='header' fixed='top' variant="dark">
       <Container className='row justify-content-start search-container'>

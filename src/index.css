@@ -94,28 +94,28 @@ code {
 }
 
 .Clear {
-  margin-top: 150px;
+  margin-top: 120px;
   background-image: url(./assets/images/clear.jpg);
   background-repeat: no-repeat;
   border-radius: 20px;
 }
 
 .Clouds {
-  margin-top: 150px;
+  margin-top: 120px;
   background-image: url(./assets/images/clouds.jpg);
   background-repeat: no-repeat;
   border-radius: 20px;
 }
 
 .Rain {
-  margin-top: 150px;
+  margin-top: 120px;
   background-image: url(./assets/images/rain.jpg);
   background-repeat: no-repeat;
   border-radius: 20px;
 }
 
 .Mist {
-  margin-top: 150px;
+  margin-top: 120px;
   background-image: url(./assets/images/mist.jpg);
   background-repeat: no-repeat;
   border-radius: 20px;
@@ -189,11 +189,12 @@ code {
 
 .favorites-section {
   margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: center;
 }
 
 .favorites-card {
   background-color: black;
   color: white;
   margin-top: 5px;
-
 }

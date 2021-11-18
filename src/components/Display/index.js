@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { WeatherContext } from '../../Contexts/WeatherContext';
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -11,7 +11,7 @@ const Display = () => {
 
   const [[city, setCity], [data, setData],
     [error, setError], [isLoaded, setIsLoaded],
-    [items, setItems]] = useContext(WeatherContext);
+    [items, setItems], [temp, setTemp]] = useContext(WeatherContext);
 
   function formatDate() {
     let today = new Date();
@@ -32,6 +32,10 @@ const Display = () => {
 
     return result.join(" ")
   }
+
+  useEffect(() => {
+    localStorage.setItem(city, temp)
+  }, [city])
 
   console.log(items.weather[0].main)
 
@@ -62,7 +66,6 @@ const Display = () => {
               <ListGroupItem>Wind Speed: {items.wind.speed} m/s</ListGroupItem>
             </ListGroup>
             <Card.Body>
-              
             </Card.Body>
           </Card>
         </div>

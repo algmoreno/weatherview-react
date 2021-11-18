@@ -8,8 +8,7 @@ const Favorites = () => {
 
   const [[city, setCity], [data, setData],
     [error, setError], [isLoaded, setIsLoaded],
-    [items, setItems]] = useContext(WeatherContext);
-
+    [items, setItems], [temp, setTemp]] = useContext(WeatherContext);
 
   function toFahrenheit(K) {
     return Math.round(((K - 273.15) * 9) / 5 + 32);
@@ -19,7 +18,7 @@ const Favorites = () => {
   const elements = ['one', 'two', 'three', 'four'];
 
   return (
-    <ul className='favorites-section'>
+    <div>
       {elements.map((value, index) => {
         return <Card className='favorites-card'>
   <Card.Body>
@@ -30,7 +29,7 @@ const Favorites = () => {
   </Card.Body>
 </Card>
       })}
-    </ul>
+    </div>
   )
 }
 
