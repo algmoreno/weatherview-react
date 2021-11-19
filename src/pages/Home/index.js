@@ -13,12 +13,13 @@ const Home = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  const [temp, setTemp] = useState('')
+  const [temp, setTemp] = useState('');
+  const [favorites, setFavorites] = useState([])
 
 
   return (
     <WeatherContext.Provider value={[[city, setCity], [data, setData], [error, setError], 
-    [isLoaded, setIsLoaded], [items, setItems], [temp, setTemp]]}>
+    [isLoaded, setIsLoaded], [items, setItems], [temp, setTemp], [favorites, setFavorites]]}>
       <div className='container'>
       <div className='row'>
         <div className='col-12'>

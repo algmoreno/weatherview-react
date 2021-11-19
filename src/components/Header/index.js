@@ -41,11 +41,6 @@ const Header = () => {
   }
 
 
-  console.log(isLoaded)
-  console.log(items);
-  console.log(city)
-  console.log(temp);
-
   return (
     <Navbar className='header' fixed='top' variant="dark">
       <Container className='row justify-content-start search-container'>
