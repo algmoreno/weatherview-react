@@ -80,13 +80,15 @@ code {
 
 .search-city-text {
   width: 20%;
-  margin-top: 50px;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
   color: rgb(138, 138, 138);
 }
 
 .display-col {
   justify-content: center;
-  margin: auto;
+  margin: 150px auto 0 auto;
 }
 
 .display-col h3 {
@@ -95,28 +97,24 @@ code {
 }
 
 .Clear {
-  margin-top: 120px;
   background-image: url(./assets/images/clear.jpg);
   background-repeat: no-repeat;
   border-radius: 20px;
 }
 
 .Clouds {
-  margin-top: 120px;
   background-image: url(./assets/images/clouds.jpg);
   background-repeat: no-repeat;
   border-radius: 20px;
 }
 
 .Rain {
-  margin-top: 120px;
   background-image: url(./assets/images/rain.jpg);
   background-repeat: no-repeat;
   border-radius: 20px;
 }
 
 .Mist {
-  margin-top: 120px;
   background-image: url(./assets/images/mist.jpg);
   background-repeat: no-repeat;
   border-radius: 20px;
@@ -190,10 +188,11 @@ code {
   margin-top: 50px;
   margin-bottom: 50px;
   justify-content: center;
+  background-color: black;
+  border-radius: 20px;
 }
 
 .favorites-card {
-  background-color: black;
   color: white;
   margin-top: 5px;
 }

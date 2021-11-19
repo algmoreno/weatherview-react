@@ -13,8 +13,8 @@ import sunny from '../../assets/images/sunny.jpg';
 
 const Header = () => {
 
-  const [[city, setCity], [data, setData],
-    [error, setError], [isLoaded, setIsLoaded],
+  const [[city, setCity],
+    [error, setError], [isLoaded, setIsLoaded], [style, setStyle],
     [items, setItems], [temp, setTemp]] = useContext(WeatherContext);
 
 
@@ -38,8 +38,12 @@ const Header = () => {
 
   if (isLoaded){
     setTemp(items.main.temp)
-  }
+    setStyle(items.weather[0].main);
+  };
+  
+  console.log(items)
 
+  console.log(isLoaded);
 
   return (
     <Navbar className='header' fixed='top' variant="dark">

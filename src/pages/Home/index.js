@@ -8,18 +8,17 @@ import { WeatherContext } from '../../Contexts/WeatherContext';
 const Home = () => {
 
   const [city, setCity] = useState('');
-  const [data, setData] = useState(false);
-
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const [temp, setTemp] = useState('');
+  const [style, setStyle] = useState(''); 
   const [favorites, setFavorites] = useState([])
 
 
   return (
-    <WeatherContext.Provider value={[[city, setCity], [data, setData], [error, setError], 
-    [isLoaded, setIsLoaded], [items, setItems], [temp, setTemp], [favorites, setFavorites]]}>
+    <WeatherContext.Provider value={[[city, setCity], [error, setError], 
+    [isLoaded, setIsLoaded], [items, setItems], [style, setStyle], [temp, setTemp], [favorites, setFavorites]]}>
       <div className='container'>
       <div className='row'>
         <div className='col-12'>
@@ -28,11 +27,13 @@ const Home = () => {
         {/* <div className='col-12 search-bar'>
           <SearchBar />
         </div> */}
+        {isLoaded ?
         <div className='col-11 display-col'>
-          {isLoaded ? <Display /> : 
-          <h3 className='search-city-text'>Search a city</h3>
-          }
+           <Display /> 
         </div>
+        : 
+        <h3 className='search-city-text'>Search a city</h3> 
+        }
         <div className='col-12 favorites-section'>
           <Favorites />
         </div> 

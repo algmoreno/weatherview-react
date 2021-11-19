@@ -1,13 +1,14 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { WeatherContext } from '../../Contexts/WeatherContext';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
 import { IoMdAddCircle } from 'react-icons/io';
+import { AiFillMinusCircle } from 'react-icons/ai';
 
 const Favorites = () => {
 
-  const [[city, setCity], [data, setData],
-    [error, setError], [isLoaded, setIsLoaded],
+  const [[city, setCity],
+    [error, setError], [isLoaded, setIsLoaded], [style, setStyle],
     [items, setItems], [temp, setTemp], [favorites, setFavorites]] = useContext(WeatherContext);
 
   function toFahrenheit(K) {
@@ -23,20 +24,36 @@ const Favorites = () => {
     return result.join(" ")
   }
 
+  useEffect(() => {
+    const data = localStorage.getItem("favorites-list");
+    if (data) {
+      setFavorites(JSON.parse(data))
+    }
+  }, []);
+
+  function removeFav() {
+    localStorage.removeItem("favorites-list")
+  }
+
   console.log(favorites);
 
   return (
-    <div>
+    <div className='favorites-container'>
       {favorites.map((key) => {
         console.log(key);
-        return <Card className='favorites-card'>
-  <Card.Body>
-    <Card.Title>{titleCase(key.name)}</Card.Title>
-    <Card.Text>
-      {toFahrenheit(key.degrees)}˚F
-    </Card.Text>
-  </Card.Body>
-</Card>
+        return <div className={key.class}> 
+        <Card className='favorites-card'>
+          <Card.Body>
+            <Card.Title>{titleCase(key.name)}</Card.Title>
+            <Card.Text>
+              {toFahrenheit(key.degrees)}˚F
+            </Card.Text>
+            <Card.Text>
+              <AiFillMinusCircle onClick={removeFav} />
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        </div>
       })}
     </div>
   )

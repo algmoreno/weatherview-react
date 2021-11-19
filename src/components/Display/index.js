@@ -9,8 +9,8 @@ const Display = () => {
 
   formatDate();
 
-  const [[city, setCity], [data, setData],
-    [error, setError], [isLoaded, setIsLoaded],
+  const [[city, setCity],
+    [error, setError], [isLoaded, setIsLoaded], [style, setStyle],
     [items, setItems], [temp, setTemp], [favorites, setFavorites]] = useContext(WeatherContext);
 
   function formatDate() {
@@ -33,13 +33,10 @@ const Display = () => {
     return result.join(" ")
   }
 
-
   function addFav() {
-    favorites.push({name: city, degrees: temp});
+    favorites.push({name: city, degrees: temp, class: style});
     localStorage.setItem('favorites-list', JSON.stringify(favorites))
   }
-
-  console.log(items.weather[0].main);
 
   return (
     <div className={items.weather[0].main}>
