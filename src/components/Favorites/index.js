@@ -14,15 +14,26 @@ const Favorites = () => {
     return Math.round(((K - 273.15) * 9) / 5 + 32);
   }
 
-  const elements = [1, 2, 3, 4]
+  function titleCase(str) {
+    let convertToArray = str.toLowerCase().split(" ");
+
+    let result = convertToArray.map(function (val) {
+      return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+    });
+    return result.join(" ")
+  }
+
+  console.log(favorites);
+
   return (
     <div>
-      {elements.map((key, value) => {
+      {favorites.map((key) => {
+        console.log(key);
         return <Card className='favorites-card'>
   <Card.Body>
-    <Card.Title>{key}</Card.Title>
+    <Card.Title>{titleCase(key.name)}</Card.Title>
     <Card.Text>
-      {value}
+      {toFahrenheit(key.degrees)}˚F
     </Card.Text>
   </Card.Body>
 </Card>

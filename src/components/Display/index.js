@@ -39,15 +39,7 @@ const Display = () => {
     localStorage.setItem('favorites-list', JSON.stringify(favorites))
   }
 
-
-  function getFav() {
-    const localData = localStorage.getItem();
-    return localData; 
-  }
-
-
   console.log(items.weather[0].main);
-  console.log(favorites)
 
   return (
     <div className={items.weather[0].main}>
@@ -68,9 +60,9 @@ const Display = () => {
             </Card.Body>
             <ListGroup className="list-group-flush weather-card-list">
               <ListGroupItem className='row'>
-                <h6 className='col-4'>Currently: {toFahrenheit(items.main.temp)} </h6>
-                <h6 className='col-4'>High: {toFahrenheit(items.main.temp_max)} </h6>
-                <h6 className='col-4'>Low: {toFahrenheit(items.main.temp_min)} </h6>
+                <h6 className='col-4'>Currently: {toFahrenheit(items.main.temp)}˚F </h6>
+                <h6 className='col-4'>High: {toFahrenheit(items.main.temp_max)}˚F</h6>
+                <h6 className='col-4'>Low: {toFahrenheit(items.main.temp_min)}˚F </h6>
               </ListGroupItem>
               <ListGroupItem>Humidity: {items.main.humidity}%</ListGroupItem>
               <ListGroupItem>Wind Speed: {items.wind.speed} m/s</ListGroupItem>
