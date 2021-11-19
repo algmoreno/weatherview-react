@@ -36,9 +36,12 @@ const Header = () => {
       )
   }, [city]);
 
-  if (items !== null || items !== []){
+  if (isLoaded){
     setTemp(items.main.temp)
   }
+
+
+  console.log(isLoaded)
   console.log(items);
   console.log(city)
   console.log(temp);

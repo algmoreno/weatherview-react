@@ -86,6 +86,7 @@ code {
 
 .display-col {
   justify-content: center;
+  margin: auto;
 }
 
 .display-col h3 {
@@ -154,8 +155,6 @@ code {
 }
 
 .addtofavorites-icon:hover {
-  height: 40px;
-  width: 40px;
   color:rgb(224, 228, 0);
   justify-content: end;
   transform: scale(1.05);

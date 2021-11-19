@@ -14,17 +14,16 @@ const Favorites = () => {
     return Math.round(((K - 273.15) * 9) / 5 + 32);
   }
 
-
   const elements = ['one', 'two', 'three', 'four'];
 
   return (
     <div>
-      {elements.map((value, index) => {
+      {elements.map((key, value) => {
         return <Card className='favorites-card'>
   <Card.Body>
-    <Card.Title>Special title treatment</Card.Title>
+    <Card.Title>{key}</Card.Title>
     <Card.Text>
-      With supporting text below as a natural lead-in to additional content.
+      {value}
     </Card.Text>
   </Card.Body>
 </Card>

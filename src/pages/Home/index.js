@@ -13,7 +13,7 @@ const Home = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  const [temp, setTemp] = useState(null)
+  const [temp, setTemp] = useState('')
 
 
   return (
@@ -24,10 +24,10 @@ const Home = () => {
         <div className='col-12'>
           <Header className='header' />
         </div>
-        <div className='col-12 search-bar'>
+        {/* <div className='col-12 search-bar'>
           <SearchBar />
-        </div>
-        <div className='col-12 display-col'>
+        </div> */}
+        <div className='col-11 display-col'>
           {isLoaded ? <Display /> : 
           <h3 className='search-city-text'>Search a city</h3>
           }

@@ -33,9 +33,14 @@ const Display = () => {
     return result.join(" ")
   }
 
-  useEffect(() => {
+  function addFav() {
     localStorage.setItem(city, temp)
-  }, [city])
+  }
+
+  function getFav() {
+    const localData = localStorage.getItem();
+    return localData; 
+  }
 
   console.log(items.weather[0].main)
 
@@ -44,7 +49,7 @@ const Display = () => {
       <div className='row justify-content-center'>
         <div className='col-12 card'>
           <div className='add-container'>
-        <Card.Link className ='addtofavorites-text' href="#"><IoMdAddCircle className='addtofavorites-icon' /></Card.Link>
+        <Card.Link onClick={addFav} className ='addtofavorites-text' href="#"><IoMdAddCircle className='addtofavorites-icon' /></Card.Link>
         </div>
           <Card className='weather-card' style={{ width: '48rem' }}>
             <Card.Body className='weather-card-body'>
