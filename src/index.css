@@ -27,6 +27,7 @@ code {
 }
 
 .navbar-dark .navbar-brand {
+  font-family: 'Questrial', sans-serif;
   color: rgb(251, 255, 11);
 }
 
@@ -158,11 +159,6 @@ code {
   transform: scale(1.05);
 }
 
-/* .addtofavorites-text {
-  width: 5%;
-  justify-content: end;
-} */
-
 .signin-form {
   margin: auto;
   margin-top: 100px;
@@ -188,11 +184,51 @@ code {
   margin-top: 50px;
   margin-bottom: 50px;
   justify-content: center;
-  background-color: black;
   border-radius: 20px;
+  padding-top: 2px;
+  padding-bottom: 7px;
 }
 
 .favorites-card {
+  margin-top: 1px;
+  height: 80px;
+}
+
+.favorite-city {
+  margin-top: auto;
   color: white;
-  margin-top: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-text:first-child {
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.card-text:nth-child(2){
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.favorite-temp {
+  margin-top: auto;
+  color: white;
+}
+
+.minus-icon {
+  color: rgb(238, 0, 0);
+  height: 25px;
+  width: 25px;
+  justify-content: end;
+}
+
+.minus-icon:hover{
+  transform: scale(1.06);
+  color: rgb(206, 0, 0);
+}
+
+.card-text:last-child {
+  margin-bottom: auto;
+  margin-top: auto;
 }

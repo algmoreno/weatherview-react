@@ -42,14 +42,19 @@ const Favorites = () => {
       {favorites.map((key) => {
         console.log(key);
         return <div className={key.class}> 
-        <Card className='favorites-card'>
-          <Card.Body>
-            <Card.Title>{titleCase(key.name)}</Card.Title>
-            <Card.Text>
+        <Card className='list-group-flush favorites-card'>
+          <Card.Body className='row'>
+            <Card.Text className='col-1 favorite-city'>
+              {titleCase(key.name)}
+            </Card.Text>
+            <Card.Text className='col-1 favorite-city'>
               {toFahrenheit(key.degrees)}˚F
             </Card.Text>
-            <Card.Text>
-              <AiFillMinusCircle onClick={removeFav} />
+            <div className='col-9'>
+
+            </div>
+            <Card.Text className='minus-icon-div col-1'>
+              <AiFillMinusCircle className='minus-icon' onClick={removeFav} />
             </Card.Text>
           </Card.Body>
         </Card>

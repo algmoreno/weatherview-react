@@ -41,9 +41,6 @@ const Header = () => {
     setStyle(items.weather[0].main);
   };
   
-  console.log(items)
-
-  console.log(isLoaded);
 
   return (
     <Navbar className='header' fixed='top' variant="dark">
