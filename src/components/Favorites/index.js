@@ -29,13 +29,11 @@ const Favorites = () => {
     if (data) {
       setFavorites(JSON.parse(data))
     }
-  }, []);
+  }, [])
 
   function removeFav() {
     localStorage.removeItem("favorites-list")
   }
-
-  console.log(favorites);
 
   return (
     <div className='favorites-container'>
