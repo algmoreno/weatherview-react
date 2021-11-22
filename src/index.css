@@ -154,7 +154,7 @@ code {
 }
 
 .addtofavorites-icon:hover {
-  color:rgb(224, 228, 0);
+  color:rgb(0, 228, 141);
   justify-content: end;
   transform: scale(1.05);
 }
