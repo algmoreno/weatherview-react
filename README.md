@@ -14,3 +14,9 @@ The user can click the add button to add the city to the favorites section.
 ![alt text](src/assets/images/screenshot3.png) 
 
 ## Deployed App
+
+https://weatherview-react.herokuapp.com 
+
+## GitHub 
+
+https://github.com/algmoreno/weatherview-react 
